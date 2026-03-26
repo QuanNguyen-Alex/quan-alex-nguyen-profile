@@ -48,30 +48,7 @@ body {
 
 /* === ANIMATED TILED BACKGROUND === */
 .bg-tiled {
-  background-color: #000033;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 50px,
-      rgba(255, 0, 255, 0.03) 50px,
-      rgba(255, 0, 255, 0.03) 51px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 50px,
-      rgba(0, 255, 255, 0.03) 50px,
-      rgba(0, 255, 255, 0.03) 51px
-    ),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='30' font-size='20' opacity='0.15'%3E%E2%9C%A8%3C/text%3E%3Ctext x='40' y='55' font-size='14' opacity='0.1'%3E%E2%AD%90%3C/text%3E%3C/svg%3E");
-  background-size: 51px 51px, 51px 51px, 60px 60px;
-  animation: bg-scroll 20s linear infinite;
-}
-
-@keyframes bg-scroll {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 0 200px, 200px 0, 60px 60px; }
+  background-color: #000;
 }
 
 /* === BLINK TAG IS BACK BABY === */
@@ -940,7 +917,7 @@ a:visited {
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.15;
+  opacity: 0.4;
   pointer-events: none;
 }
 

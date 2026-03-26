@@ -96,14 +96,28 @@ const popupMessages = [
 let popupCount = 0;
 const MAX_POPUPS = 3;
 
+function sidePopupLeft() {
+  const popupWidth = 400;
+  const centerStart = (window.innerWidth - 900) / 2;
+  const centerEnd = centerStart + 900;
+  // Randomly pick left side or right side
+  if (Math.random() > 0.5 && centerStart > popupWidth + 20) {
+    // left side
+    return 10 + Math.random() * Math.max(10, centerStart - popupWidth - 20);
+  } else {
+    // right side
+    return centerEnd + 10 + Math.random() * Math.max(10, window.innerWidth - centerEnd - popupWidth - 20);
+  }
+}
+
 function showFakePopup() {
   if (popupCount >= MAX_POPUPS) return;
 
   const msg = popupMessages[Math.floor(Math.random() * popupMessages.length)];
   const popup = document.createElement('div');
   popup.className = 'fake-popup active';
-  popup.style.top = (50 + Math.random() * 300) + 'px';
-  popup.style.left = (50 + Math.random() * (window.innerWidth - 450)) + 'px';
+  popup.style.top = (80 + Math.random() * 300) + 'px';
+  popup.style.left = sidePopupLeft() + 'px';
 
   popup.innerHTML = `
     <div class="fake-popup-titlebar">
@@ -310,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomePopup = document.createElement('div');
     welcomePopup.className = 'fake-popup active';
     welcomePopup.style.top = '100px';
-    welcomePopup.style.left = Math.max(50, (window.innerWidth / 2) - 200) + 'px';
+    welcomePopup.style.left = sidePopupLeft() + 'px';
     welcomePopup.innerHTML = `
       <div class="fake-popup-titlebar">
         <span>Welcome to the INFORMATION SUPERHIGHWAY!</span>
