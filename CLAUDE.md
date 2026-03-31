@@ -1,5 +1,28 @@
 # Quan Alex Nguyen — Portfolio Landing Page
 
+## Session Management
+
+When user asks to resume a project, always read CLAUDE.md first and check for saved URLs, file paths, and deployment status before asking clarifying questions.
+
+## Project State
+
+- **Deployment URL**: https://alex-quan-nguyen-portfolio-landing.vercel.app
+- **GitHub Repo**: https://github.com/QuanNguyen-Alex/quan-alex-nguyen-profile
+- **Current Phase**: [update at end of each session]
+- **Last Completed Task**: [update at end of each session]
+
+## Workflow Preferences
+
+Always prefer CLI-first approaches over suggesting manual browser steps. If a task can be done via CLI (gh, vercel, git), do it that way.
+
+## Job Application Prep
+
+Job application deliverables should always be generated in HTML format. Standard package: resume, cover letter, interview prep, cheat sheet, and application tracker.
+
+## File Handling
+
+If a file format is unreadable (.pages, .docx), immediately ask the user to convert to PDF or plain text. Don't attempt multiple failed reads.
+
 ## Project Overview
 
 A retro Y2K/MySpace-style personal portfolio page for Quan Alex Nguyen (Technical Support Manager at TeKnowledge, Hanoi, Vietnam).
