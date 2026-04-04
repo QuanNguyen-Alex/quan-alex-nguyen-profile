@@ -6,7 +6,7 @@ When user asks to resume a project, always read CLAUDE.md first and check for sa
 
 ## Project State
 
-- **Deployment URL**: https://alex-quan-nguyen-portfolio-landing.vercel.app
+- **Deployment URL**: https://alex-quan-nguyen-portfolio.vercel.app
 - **GitHub Repo**: https://github.com/QuanNguyen-Alex/quan-alex-nguyen-profile
 - **Current Phase**: [update at end of each session]
 - **Last Completed Task**: [update at end of each session]
@@ -31,7 +31,7 @@ A retro Y2K/MySpace-style personal portfolio page for Quan Alex Nguyen (Technica
 
 | Platform | URL |
 |----------|-----|
-| **Vercel (primary)** | https://alex-quan-nguyen-portfolio-landing.vercel.app |
+| **Vercel (primary)** | https://alex-quan-nguyen-portfolio.vercel.app |
 | **GitHub Pages** | https://quannguyen-alex.github.io/quan-alex-nguyen-profile/ |
 
 ## GitHub Repository
