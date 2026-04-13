@@ -8,8 +8,8 @@ When user asks to resume a project, always read CLAUDE.md first and check for sa
 
 - **Deployment URL**: https://alex-quan-nguyen-portfolio.vercel.app
 - **GitHub Repo**: https://github.com/QuanNguyen-Alex/quan-alex-nguyen-profile
-- **Current Phase**: [update at end of each session]
-- **Last Completed Task**: [update at end of each session]
+- **Current Phase**: Live — clean dark mode redesign deployed
+- **Last Completed Task**: Full redesign with Customer Success + AI narrative, chat widget, terminal animation. Pushed and live at https://alex-quan-nguyen-portfolio.vercel.app
 
 ## Workflow Preferences
 
