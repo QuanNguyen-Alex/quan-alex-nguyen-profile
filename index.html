@@ -82,6 +82,15 @@
     .chat-opt{padding:6px 12px;border:1px solid #333;border-radius:20px;font-size:11px;color:#999;cursor:pointer;transition:all .2s;background:transparent}
     .chat-opt:hover{border-color:#3b82f6;color:#60a5fa;background:rgba(59,130,246,.1)}
 
+    /* Resume modal */
+    .resume-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+    .resume-modal.open{display:flex}
+    .resume-modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+    .resume-modal-content{position:relative;background:#111;border:1px solid #2a2a2a;border-radius:16px;padding:32px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:msg-in .3s ease}
+    .resume-modal input{width:100%;padding:10px 14px;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:8px;color:#fff;font-size:14px;outline:none;transition:border-color .2s}
+    .resume-modal input:focus{border-color:#3b82f6}
+    .resume-modal input::placeholder{color:#666}
+
     /* Typing indicator */
     .typing-dots span{display:inline-block;width:6px;height:6px;background:#666;border-radius:50%;margin:0 1px;animation:typing-bounce .6s infinite alternate}
     .typing-dots span:nth-child(2){animation-delay:.15s}
@@ -706,10 +715,10 @@
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
-          <a href="resume.pdf" download class="w-full sm:w-auto px-6 py-3 border border-dark-500 hover:border-accent-500 text-dark-200 hover:text-white text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-2">
+          <button onclick="document.getElementById('resume-modal').classList.add('open')" class="w-full sm:w-auto px-6 py-3 border border-dark-500 hover:border-accent-500 text-dark-200 hover:text-white text-sm font-medium rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             Download Resume
-          </a>
+          </button>
         </div>
         <p class="text-dark-500 text-xs mt-8 reveal" style="transition-delay:.2s">Based in Hanoi, Vietnam &middot; Open to global opportunities</p>
       </div>
@@ -724,6 +733,34 @@
     </footer>
 
   </main>
+
+  <!-- ==================== RESUME DOWNLOAD MODAL ==================== -->
+  <div class="resume-modal" id="resume-modal">
+    <div class="resume-modal-overlay" onclick="document.getElementById('resume-modal').classList.remove('open')"></div>
+    <div class="resume-modal-content">
+      <button onclick="document.getElementById('resume-modal').classList.remove('open')" class="absolute top-3 right-4 text-dark-400 hover:text-white text-xl cursor-pointer">&times;</button>
+      <h3 class="text-lg font-semibold text-white mb-1">Download my resume</h3>
+      <p class="text-dark-400 text-sm mb-6">Leave your details and the download will start automatically.</p>
+      <form id="resume-form" class="space-y-4">
+        <div>
+          <label class="text-dark-300 text-xs font-medium mb-1 block">Name</label>
+          <input type="text" name="name" id="resume-name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label class="text-dark-300 text-xs font-medium mb-1 block">Email</label>
+          <input type="email" name="email" id="resume-email" placeholder="your@email.com" required>
+        </div>
+        <button type="submit" id="resume-submit-btn" class="w-full px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white text-sm font-medium rounded-lg transition-all hover:shadow-lg hover:shadow-accent-600/25 flex items-center justify-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Download Resume
+        </button>
+      </form>
+      <div id="resume-success" class="hidden text-center py-4">
+        <p class="text-accent-400 font-medium mb-1">Thank you!</p>
+        <p class="text-dark-400 text-sm">Your download should start automatically.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== AI CHAT WIDGET ==================== -->
   <div class="chat-widget">
@@ -987,6 +1024,62 @@
         typing.remove();
         addMessage(chatResponses[q], 'bot');
       }, 800 + Math.random() * 600);
+    });
+
+    // ==================== RESUME DOWNLOAD FORM ====================
+    document.getElementById('resume-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('resume-submit-btn');
+      const name = document.getElementById('resume-name').value.trim();
+      const email = document.getElementById('resume-email').value.trim();
+      if (!name || !email) return;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="animate-pulse">Sending...</span>';
+
+      try {
+        await fetch('https://formsubmit.co/ajax/anhquan1990@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _subject: 'Resume download: ' + name + ' (' + email + ')',
+            _template: 'table'
+          })
+        });
+      } catch (err) {
+        // Still allow download even if form service is down
+      }
+
+      // Show success and trigger download
+      document.getElementById('resume-form').classList.add('hidden');
+      document.getElementById('resume-success').classList.remove('hidden');
+
+      const link = document.createElement('a');
+      link.href = 'resume.pdf';
+      link.download = 'Alex Nguyen - Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Close modal after delay
+      setTimeout(() => {
+        document.getElementById('resume-modal').classList.remove('open');
+        // Reset form for next use
+        setTimeout(() => {
+          document.getElementById('resume-form').classList.remove('hidden');
+          document.getElementById('resume-success').classList.add('hidden');
+          document.getElementById('resume-form').reset();
+          btn.disabled = false;
+          btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Download Resume';
+        }, 500);
+      }, 2000);
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') document.getElementById('resume-modal').classList.remove('open');
     });
   </script>
 
